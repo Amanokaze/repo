@@ -14,7 +14,7 @@
                 "runserver",
                 "--noreload"
             ],
-            "django": true
+            "django": true,
         },
     ]
 }

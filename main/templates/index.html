@@ -1,0 +1,20 @@
+{% extends "include/base.html" %}
+{% block title %}타이틀{% endblock %}
+{% block script %}
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h4 class="page-title">Game List</h4>
+</div>
+<div class="row">
+    <div class="card col-12">
+        <div class="card-body">
+            {% for obj in object_list %}
+            {{ obj.name }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+            
+{% endblock %}

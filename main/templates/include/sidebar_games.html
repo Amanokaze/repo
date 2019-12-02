@@ -1,0 +1,9 @@
+                                    <ul class="nav nav-collapse">
+                                        {% for obj in object_list %}
+                                        <li>
+                                            <a href="{% url 'game-index' obj.code %}">
+                                                <span class="sub-item">{{ obj.name }}</span>
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>

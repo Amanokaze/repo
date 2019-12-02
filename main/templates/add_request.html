@@ -1,0 +1,60 @@
+{% extends "include/base.html" %}
+{% block title %}타이틀{% endblock %}
+{% block script %}
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h4 class="page-title">Add a game request</h4>
+</div>
+<div class="row">
+    <div class="card col-12">
+        <div class="card-header">
+            <div class="card-category">※ Your request will be applied after administrator confirm.</div>
+        </div>
+        <div class="card-body">
+        <form id="requestform" name="requestform" method="POST">
+        {% csrf_token %}
+        <div class="form">
+            {% for field in form %}
+            <div class="form-group form-show-validation row">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xs-12 mt-sm-2">
+                    {{ field.label }} 
+                    {% if field.field.required %}
+                    <span class="required-label">*</span>
+                    {% endif %}
+                </label>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                    {% if field.name == 'image' %}
+                    <div class="row">
+                        <div class="input-file input-file-image">
+                            <input type="file" class="form-control form-control-file" id="uploadImg" name="uploadImg" accept="image/*" required="">
+                            <label for="uploadImg" class="label-input-file btn btn-primary btn-sm">Upload</label>                           
+                            <img class="img-upload-preview" width="100" height="100" src="http://placehold.it/100x100" alt="preview" style="margin-top: 10px;"/>
+                        </div>
+                    </div>
+                    {% elif field.name == 'icon' %}
+                    <div class="row">
+                        <div class="input-file input-file-image">
+                            <input type="file" class="form-control form-control-file" id="uploadIcon" name="uploadIcon" accept="image/*" required="">
+                            <label for="uploadIcon" class=" label-input-file btn btn-primary btn-sm">Upload</label>                            
+                            <img class="img-upload-preview" width="50" height="50" src="http://placehold.it/50x50" alt="preview" style="margin-top: 10px"/>
+                        </div>
+                    </div>
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="card-action">
+                <button class="btn btn-success">Submit</button>
+                <button class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+        </form>
+        </div>
+    </div>
+</div>
+            
+{% endblock %}

@@ -2,17 +2,18 @@
 		<div class="sidebar sidebar-style-2">			
 			<div class="sidebar-wrapper scrollbar scrollbar-inner">
 				<div class="sidebar-content">
-					<ul class="nav nav-primary">
+					<ul class="nav nav-black">
 						<li class="nav-item active">
-							<a href="/">
+							<a href="{% url 'game-index' game %}">
 								<i class="fas fa-home"></i>
-                                <p>Home</p>
+                                <p>Dashboard</p>
 							</a>
                         </li>            
                         <li class="nav-item">
-                        <a href="intro/">
+                        <a href="{% url 'edit-collection-menu' game %}">
                             <i class="fas fa-info-circle"></i>
-                            <span>Intro</span></a>
+                            <p>Edit Menus</p>
+                        </a>                        
                         </li>
                     </ul>
 				</div>
